@@ -1,5 +1,8 @@
-import { Button, Stack, IconButton, ButtonGroup } from "@mui/material"
+import { Button, Stack, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup } from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import FormatBoldIcon from '@mui/icons-material/FormatBold'
+import FormatItalicIcon from '@mui/icons-material/FormatItalic'
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 
 export const MuiButton = () => {
   return (
@@ -39,6 +42,19 @@ export const MuiButton = () => {
           <Button disableRipple>Center</Button>
           <Button>Right</Button>
         </ButtonGroup>
+      </Stack>
+      <Stack direction="row">
+        <ToggleButtonGroup aria-label="text formatting">
+          <ToggleButton value="bold">
+            <FormatBoldIcon />
+          </ToggleButton>
+          <ToggleButton value="italic">
+            <FormatItalicIcon />
+          </ToggleButton>
+          <ToggleButton value="underlined">
+            <FormatUnderlinedIcon />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Stack>
     </Stack>
     
