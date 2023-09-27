@@ -1,10 +1,19 @@
 import { Button, Stack, IconButton, ButtonGroup, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { useState } from "react"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import FormatBoldIcon from '@mui/icons-material/FormatBold'
 import FormatItalicIcon from '@mui/icons-material/FormatItalic'
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 
 export const MuiButton = () => {
+  const [formats, setFormats] = useState<string | null>(null)
+
+  console.log(formats)
+
+  const handleFormatChange = (_event: React.MouseEvent<HTMLElement>,updatedFormats: string | null) => {
+    setFormats(updatedFormats)
+  }
+
   return (
     <Stack spacing={4} direction="column">
       <Stack spacing={4} direction="row">
@@ -44,14 +53,16 @@ export const MuiButton = () => {
         </ButtonGroup>
       </Stack>
       <Stack direction="row">
-        <ToggleButtonGroup aria-label="text formatting">
-          <ToggleButton value="bold">
+        <ToggleButtonGroup aria-label="text formatting" value={formats} onChange={handleFormatChange}
+          orientation="vertical" color="secondary" exclusive
+        >
+          <ToggleButton value="bold" aria-label="bold">
             <FormatBoldIcon />
           </ToggleButton>
-          <ToggleButton value="italic">
+          <ToggleButton value="italic" aria-label="italic">
             <FormatItalicIcon />
           </ToggleButton>
-          <ToggleButton value="underlined">
+          <ToggleButton value="underlined" aria-label="underlined">
             <FormatUnderlinedIcon />
           </ToggleButton>
         </ToggleButtonGroup>
